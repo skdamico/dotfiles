@@ -1,3 +1,4 @@
 # Dotfiles
 
-### Here are some of my dotfiles. They are not documented and will probably not work out of the box.
+### Here are some of my dotfiles.
+### Run the included script to create links to these files (Usually from your home dir)
