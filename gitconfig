@@ -2,3 +2,6 @@
   default = tracking
 [format]
   pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
+[user]
+name = Stefano DAmico
+email = stefano@seatme.com
