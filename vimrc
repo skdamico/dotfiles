@@ -5,6 +5,9 @@ if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
+" Remap leader
+let mapleader = ","
+
 " Use Vim settings
 set nocompatible
 " show the cursor position all the time
@@ -22,6 +25,19 @@ set undolevels=1000
 set encoding=utf-8
 " We have a modern terminal
 set ttyfast
+" manages buffers effectively
+set hidden
+" Intuitive backspacing in insert mode
+set backspace=indent,eol,start
+
+" Automatically read files
+set autoread
+
+" Automatically write buffers that have been unfocused
+set autowrite
+
+" Make the mouse work. Scroll, tabs, NERDTree, etc.
+set mouse=a
 
 " Bind 'ii' to exit insert mode
 imap ii <Esc>
@@ -31,6 +47,9 @@ imap ii <Esc>
 """
 " highlight search results by default
 set hlsearch
+" this can be annoying
+nmap <silent> <leader>h :silent :nohlsearch<CR>
+
 " case inferred by default
 set infercase
 " make searches case-insensitive
@@ -41,9 +60,13 @@ set smartcase
 set incsearch
 
 set laststatus=2  " Always display the status line
+" Broken down into easily includeable segments
+set statusline=%<%f\    " Filename
+set statusline+=%w%h%m%r " Options
+set statusline+=%{fugitive#statusline()} "  Git Hotness
+set statusline+=\ [%{getcwd()}]          " current dir
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
-" turn on indent plugin
-filetype plugin indent on
 
 """
 """ Spacing and Layout
@@ -53,12 +76,12 @@ set nowrap
 " Wrap at word
 set linebreak
 
-" Softtabs, 2 spaces
+" Softtabs, 4 spaces
 set expandtab
 set autoindent
 set copyindent
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 " When shifting from less than 4 spaces, goto 4 instead of 5
 set shiftround
@@ -66,6 +89,8 @@ set shiftround
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
+" Better unix / windows compatibility
+set viewoptions=folds,options,cursor,unix,slash
 
 """
 """ Colors and aesthetics
@@ -76,6 +101,11 @@ set list listchars=tab:»·,trail:·
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
+
+" file-type highlighting and configuration
+filetype on
+filetype plugin on
+filetype indent on
 
 set t_Co=256
 
@@ -112,6 +142,12 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Copy from current to end of line
+nnoremap Y y$
+
+" shorten the stupid 'Press ENTER or type command to continue' prompts
+set shortmess=atI
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -142,6 +178,12 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 " Set indentation size on *.rb files to 2
 au BufNewFile,BufReadPost *.rb setl shiftwidth=2 expandtab
 
+" Set indentation size on *.html files to 2
+au BufNewFile,BufReadPost *.html setl shiftwidth=2 softtabstop=2 expandtab
+
+" Set indentation size on *.js files to 2
+au BufNewFile,BufReadPost *.js setl shiftwidth=2 softtabstop=2 expandtab
+
 " Auto compile coffeescripts and show errors (redraw for term based vim)
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
@@ -152,5 +194,37 @@ au BufRead,BufNewFile *.scss set filetype=scss
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
 
+"""
+""" NERDTree!
+"""
+
 " Close vim if NERDtree is the last buffer open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Bind NERDTreeTabsToggle to <Leader>n
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" Bind NERDTreeFind to <Leader>f
+map <Leader>ff <plug>NERDTreeFind<CR>
+
+
+"""
+""" Tabularize
+"""
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+
+" GUI Settings {
+" GVIM- (here instead of .gvimrc)
+if has('gui_running')
+    set guioptions-=T " remove the toolbar
+    set lines=40      " 40 lines of text instead of 24,
+else
+endif
+" }
