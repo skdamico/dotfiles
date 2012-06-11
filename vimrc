@@ -190,9 +190,18 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 " Mark scss as sass
 au BufRead,BufNewFile *.scss set filetype=scss
 
+" Set .as files to be ActionScript
+au BufRead,BufNewFile *.as set filetype=actionscript
+
 " Highlight cursorline ONLY in the active window:
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
+
+" Replace all tabs with spaces
+nmap <Leader>dt :%s/\t/    /g<CR>
+
+" Delete all leading whitespace
+nmap <Leader>dsl :%s/^\s\s*$//g<CR>
 
 """
 """ NERDTree!
@@ -205,8 +214,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " Bind NERDTreeFind to <Leader>f
-map <Leader>ff <plug>NERDTreeFind<CR>
-
+nmap <Leader>f :NERDTreeFind<CR>
 
 """
 """ Tabularize
