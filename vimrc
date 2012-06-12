@@ -197,8 +197,11 @@ au BufRead,BufNewFile *.as set filetype=actionscript
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
 
-" Replace all tabs with spaces
-nmap <Leader>dt :%s/\t/    /g<CR>
+" Replace all tabs with spaces (2 spaces)
+nmap <Leader>dt2 :%s/\t/  /g<CR>
+
+" Replace all tabs with spaces (4 spaces)
+nmap <Leader>dt4 :%s/\t/    /g<CR>
 
 " Delete all leading whitespace
 nmap <Leader>dsl :%s/^\s\s*$//g<CR>
