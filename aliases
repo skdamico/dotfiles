@@ -1,1 +1,10 @@
 alias la="ls -la"
+
+## git
+alias g="git"
+alias gs="git status"
+
+## Functions
+fnd() {
+    ack "$*" --all-types --smart-case --color-match=green --color-filename=blue
+}
