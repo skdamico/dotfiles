@@ -64,10 +64,15 @@ bindkey "$(echotc ku)" up-line-or-history
 bindkey "$(echotc kd)" down-line-or-history
 
 # recommended by brew doctor
-export PATH=/Users/stef/bin:/usr/local/bin:/usr/local/share/python:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
-export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+export PATH=/Users/stef/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
 
 # RVM
 [[ -s '/Users/stef/.rvm/scripts/rvm' ]] && source '/Users/stef/.rvm/scripts/rvm'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# ec2-api-tools setup
+if [[ -s $HOME/.ec2/stefano_aws ]] then
+    source $HOME/.ec2/stefano_aws
+fi
+

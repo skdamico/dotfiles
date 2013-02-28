@@ -1,6 +1,10 @@
 call pathogen#infect('~/.vim/bundle')
 filetype plugin indent on
 
+if &shell !~ '/sh$'
+    set shell=/bin/sh
+endif
+
 " Remap leader
 let mapleader = ","
 
@@ -367,6 +371,9 @@ if has('gui_running')
     " Use a line-drawing char for pretty vertical splits.
     set fillchars+=vert:│
 
+    " start in fullscreen mode
+    set fuoptions=maxvert,maxhorz
+    au GUIEnter * set fullscreen
 
     " quickselect tabs with Apple + # (gvim only)
     nnoremap <D-1> :tabn 1<CR>
