@@ -112,6 +112,10 @@ set list listchars=tab:»·,trail:·
 " Better unix / windows compatibility
 set viewoptions=folds,options,cursor,unix,slash
 
+" More natural splitting
+set splitbelow
+set splitright
+
 """
 """ Colors and aesthetics
 """
