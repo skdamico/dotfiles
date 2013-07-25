@@ -4,7 +4,7 @@
   pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
 [user]
 	name = Stefano DAmico
-	email = stefano@seatme.com
+	email = skdamico@gmail.com
 [merge]
   keepBackup = false;
   tool = p4merge
