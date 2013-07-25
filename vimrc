@@ -1,4 +1,5 @@
 call pathogen#infect('~/.vim/bundle')
+
 filetype plugin indent on
 
 if &shell !~ '/sh$'
@@ -128,7 +129,7 @@ endif
 
 " Color scheme
 set background=dark
-colorscheme tomorrow-night
+colorscheme Tomorrow-Night
 "highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
