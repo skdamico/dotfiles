@@ -357,6 +357,18 @@ map <Leader>n :NERDTreeTabsToggle<CR>
 " Bind NERDTreeFind to <Leader>f
 nmap <Leader>f :NERDTreeFind<CR>
 
+
+"""
+""" Yelp
+"""
+function YelpSettings()
+    setlocal noexpandtab    " don't turn them into spaces
+    setlocal shiftwidth=4   " auto-indent width
+    setlocal tabstop=4      " display width of a physical tab character
+    setlocal softtabstop=0  " disable part-tab-part-space tabbing
+endfunction
+autocmd BufNewFile,BufRead ~/pg/* call YelpSettings()
+
 """
 """ GUI Settings
 """
