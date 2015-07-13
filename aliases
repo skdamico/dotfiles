@@ -7,6 +7,12 @@ alias gsu="git submodule sync && git submodule update --init --recursive"
 
 alias f="ack -R --all-types --smart-case"
 
+alias rb="git fetch origin; review-branch --tracking-branch origin/master"
+alias rb-force="git fetch origin; review-branch -f --tracking-branch origin/master"
+
 smash() { ec2-ssh -r us-west-1 stefano@$1; }
 
-alias work="cd ~/dev/www && source env/bin/activate && rvm use default && aws-creds shell seatme"
+alias work="rvm use default && cd ~/dev/www && source env/bin/activate"
+alias smsh="aws-creds shell seatme"
+
+alias be="bundle exec"

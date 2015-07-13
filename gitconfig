@@ -1,10 +1,10 @@
 [push]
-	default = simple
+  default = simple
 [format]
   pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
 [user]
-	name = Stefano DAmico
-	email = skdamico@gmail.com
+  name = Stefano DAmico
+  email = skdamico@gmail.com
 [merge]
   keepBackup = false;
   tool = p4merge
@@ -13,11 +13,17 @@
   keepTemporaries = false
   trustExitCode = false
   keepBackup = false
-[diff]
-  external = p4diff
+#[diff]
+#  external = p4diff
 [core]
   autocrlf = input
-	excludesfile = /Users/stef/.gitignore_global
+	excludesfile = /Users/sdamico/.gitignore_global
+#[difftool "sourcetree"]
+#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+#	path = 
+#[mergetool "sourcetree"]
+#  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#  trustExitCode = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

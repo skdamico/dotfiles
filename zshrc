@@ -22,6 +22,8 @@ if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
+source "$HOME/.profile"
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -64,15 +66,8 @@ bindkey "$(echotc ku)" up-line-or-history
 bindkey "$(echotc kd)" down-line-or-history
 
 # recommended by brew doctor
-export PATH=/Users/stef/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
+export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
 
-# RVM
-[[ -s '/Users/stef/.rvm/scripts/rvm' ]] && source '/Users/stef/.rvm/scripts/rvm'
+export PATH="$PATH:$HOME/.rvm/bin"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# ec2-api-tools setup
-if [[ -s $HOME/.ec2/stefano_aws ]] then
-    source $HOME/.ec2/stefano_aws
-fi
-
+source "$HOME/.ec2/stefano_aws"
