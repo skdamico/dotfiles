@@ -1,30 +1,40 @@
 [submodule "vim/bundle/taglist.vim"]
-	path = vim/bundle/taglist.vim
-	url = https://github.com/vim-scripts/taglist.vim.git
+    path = vim/bundle/taglist.vim
+    url = https://github.com/vim-scripts/taglist.vim.git
+    ignore = dirty
 [submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
+    path = vim/bundle/ctrlp.vim
+    url = https://github.com/kien/ctrlp.vim.git
+    ignore = dirty
 [submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+    path = vim/bundle/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
+    ignore = dirty
 [submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+    path = vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
+    ignore = dirty
 [submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+    path = vim/bundle/syntastic
+    url = https://github.com/scrooloose/syntastic.git
+    ignore = dirty
 [submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
+    path = vim/bundle/tabular
+    url = https://github.com/godlygeek/tabular.git
+    ignore = dirty
 [submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+    path = vim/bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive.git
+    ignore = dirty
 [submodule "vim/bundle/vim-nerdtree-tabs"]
-	path = vim/bundle/vim-nerdtree-tabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
+    path = vim/bundle/vim-nerdtree-tabs
+    url = https://github.com/jistr/vim-nerdtree-tabs.git
+    ignore = dirty
 [submodule "vim/bundle/gitgutter"]
-	path = vim/bundle/gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
+    path = vim/bundle/gitgutter
+    url = https://github.com/airblade/vim-gitgutter.git
+    ignore = dirty
 [submodule "vim/bundle/vim-gitgutter"]
-	path = vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
+    path = vim/bundle/vim-gitgutter
+    url = https://github.com/airblade/vim-gitgutter.git
+    ignore = dirty
