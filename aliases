@@ -12,7 +12,11 @@ alias rb-force="git fetch origin; review-branch -f --tracking-branch origin/mast
 
 smash() { ec2-ssh -r us-west-1 stefano@$1; }
 
-alias work="rvm use default && cd ~/dev/www && source env/bin/activate"
+alias work="cd ~/dev/www && aws-creds shell seatme && source env/bin/activate"
 alias smsh="aws-creds shell seatme"
 
 alias be="bundle exec"
+
+alias docker-cleanup="docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes"
+
+alias flush-redis="docker exec www_redis_1 redis-cli -c 'FLUSHALL'"
