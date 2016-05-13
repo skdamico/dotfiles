@@ -66,4 +66,9 @@ bindkey "$(echotc kd)" down-line-or-history
 # recommended by brew doctor
 export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin"
+# pyenv/rbenv
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
+
+export PYENV_ROOT="/usr/local/var/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
