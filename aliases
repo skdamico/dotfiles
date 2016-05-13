@@ -20,3 +20,6 @@ alias be="bundle exec"
 alias docker-cleanup="docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes"
 
 alias flush-redis="docker exec www_redis_1 redis-cli -c 'FLUSHALL'"
+
+alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
