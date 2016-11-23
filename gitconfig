@@ -1,18 +1,19 @@
 [push]
-  default = simple
+    default = current
 [format]
-  pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
+    pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
 [user]
-  name = Stefano DAmico
-  email = skdamico@gmail.com
+    name = Stefano DAmico
+    email = skdamico@gmail.com
+[core]
+    editor = vim
+    autocrlf = input
+    excludesfile = /Users/sdamico/.gitignore_global
 [merge]
-  keepBackup = false;
-	tool = p4mergetool
+    keepBackup = false;
+    tool = p4mergetool
 #[diff]
 #  external = p4diff
-[core]
-  autocrlf = input
-	excludesfile = /Users/sdamico/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -20,7 +21,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-	trustExitCode = false
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+    trustExitCode = false
 [mergetool]
-	keepBackup = false
+    keepBackup = false
