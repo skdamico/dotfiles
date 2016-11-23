@@ -38,3 +38,7 @@
     path = vim/bundle/vim-gitgutter
     url = https://github.com/airblade/vim-gitgutter.git
     ignore = dirty
+[submodule "editorconfig-vim"]
+    path = editorconfig-vim
+    url = https://github.com/editorconfig/editorconfig-vim.git
+    ignore = dirty

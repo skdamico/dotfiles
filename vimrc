@@ -327,7 +327,7 @@ nmap <Leader>dls :%s/^\s\s*$//g<CR>
 " NO more shit
 nnoremap ; :
 
-nmap <Leader>pdb oimport pdb; pdb.set_trace()<cr>
+nmap <Leader>pdb Oimport pdb; pdb.set_trace()<Esc><cr>
 
 """
 """ PeepOpen

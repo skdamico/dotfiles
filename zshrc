@@ -22,8 +22,6 @@ if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
-source "$HOME/.profile"
-
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -68,6 +66,9 @@ bindkey "$(echotc kd)" down-line-or-history
 # recommended by brew doctor
 export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin"
+# pyenv/rbenv
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
 
-source "$HOME/.ec2/stefano_aws"
+export PYENV_ROOT="/usr/local/var/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
