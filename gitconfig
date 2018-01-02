@@ -3,15 +3,15 @@
 [format]
     pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
 [user]
-    name = Stefano DAmico
-    email = skdamico@gmail.com
+	name = Stefano DAmico
+	email = skdamico@gmail.com
 [core]
     editor = vim
     autocrlf = input
-    excludesfile = /Users/sdamico/.gitignore_global
+	excludesfile = /Users/skdamico/.gitignore_global
 [merge]
     keepBackup = false;
-    tool = p4mergetool
+	tool = p4mergetool
 #[diff]
 #  external = p4diff
 [difftool "sourcetree"]
@@ -21,7 +21,14 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [mergetool "p4mergetool"]
-    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
     trustExitCode = false
 [mergetool]
     keepBackup = false
+[commit]
+	template = /Users/skdamico/.stCommitMsg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

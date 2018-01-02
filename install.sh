@@ -26,3 +26,11 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file $target_dir/.$file
 done
+
+echo "Cloning vim plugins"
+cd $dir/vim/bundle
+git submodule sync
+git submodule update --init
+
+cd $dir
+echo "...done"
