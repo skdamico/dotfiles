@@ -8,25 +8,20 @@
 [core]
     editor = vim
     autocrlf = input
-	excludesfile = /Users/skdamico/.gitignore_global
+	excludesfile = /Users/stef/.gitignore_global
 [merge]
     keepBackup = false;
-	tool = p4mergetool
-#[diff]
-#  external = p4diff
+    tool = sourcetree
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-    trustExitCode = false
 [mergetool]
     keepBackup = false
 [commit]
-	template = /Users/skdamico/.stCommitMsg
+	template = \"$HOME\"/.stCommitMsg
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

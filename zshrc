@@ -44,7 +44,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git git-flow django vim)
+plugins=(nvm zsh-better-npm-completion osx git vim)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -65,10 +65,12 @@ bindkey "$(echotc kd)" down-line-or-history
 
 # recommended by brew doctor
 export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/opt/llvm/bin:$PATH
 
-# pyenv/rbenv
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
-export PYENV_ROOT="/usr/local/var/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# never use prettier-eslint
+#export SKIP=prettier-eslint

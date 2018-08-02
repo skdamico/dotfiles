@@ -4,6 +4,7 @@ alias la="ls -la"
 alias g="git"
 alias gs="git status"
 alias gsu="git submodule sync && git submodule update --init --recursive"
+alias gco="git checkout"
 
 alias f="ack -R --all-types --smart-case"
 
@@ -14,3 +15,15 @@ alias docker-cleanup="docker run -v /var/run/docker.sock:/var/run/docker.sock -v
 alias flush-redis="docker exec www_redis_1 redis-cli -c 'FLUSHALL'"
 alias pg-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+## ngrok
+
+## goodtime
+alias logp="heroku logs -a good-time-app -n 1000 --tail"
+alias logst="heroku logs -a goodtime-stage -n 1000 --tail"
+alias logst2="heroku logs -a goodtime-stage2 -n 1000 --tail"
+alias unitt="npm run unittest:list -- -g"
+alias unittest="npm run unittest:list"
+alias itestt="npm run integrationtest:list -- -g"
+alias itest="npm run integrationtest:list"
+alias npmi="npm install --ignore-scripts"
