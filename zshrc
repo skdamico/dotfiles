@@ -14,8 +14,8 @@ compinit
 # set architecture flags
 export ARCHFLAGS="-arch x86_64"
 
-# use vim as an editor
-export EDITOR=vim
+# use nvim as an editor
+export EDITOR=nvim
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -44,7 +44,16 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(nvm zsh-better-npm-completion osx git vim)
+plugins=(
+    nvm 
+    zsh-better-npm-completion 
+    osx 
+    git 
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    vscode
+    heroku
+)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -64,8 +73,9 @@ bindkey "$(echotc ku)" up-line-or-history
 bindkey "$(echotc kd)" down-line-or-history
 
 # recommended by brew doctor
-export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
+export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/opt/llvm/bin:$PATH
+export PATH=/usr/local/opt/ncurses/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -74,3 +84,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # never use prettier-eslint
 #export SKIP=prettier-eslint
+
+# Golang
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
