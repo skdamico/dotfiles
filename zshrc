@@ -49,10 +49,9 @@ plugins=(
     zsh-better-npm-completion 
     osx 
     git 
-    zsh-syntax-highlighting
-    zsh-autosuggestions
     vscode
     heroku
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -77,6 +76,7 @@ export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/opt/ncurses/bin:$PATH
 
+# 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -91,3 +91,12 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 test -d "${GOPATH}" || mkdir "${GOPATH}"
 test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+
+
+# RUST
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
