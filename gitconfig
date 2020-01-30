@@ -3,7 +3,7 @@
 [format]
     pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
 [user]
-	name = Stefano DAmico
+	name = Stefano D'Amico
 	email = skdamico@gmail.com
 [core]
     editor = vim

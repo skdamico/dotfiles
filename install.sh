@@ -7,7 +7,7 @@
 dir=~/dotfiles                    # dotfiles directory
 old_dir=dotfiles_old              # old dotfiles backup directory
 target_dir=~                      # target directory
-files="zlogin vimrc vim zshrc gitconfig gitignore_global aliases osx ngrok"    # list of files/folders to symlink in homedir
+files="zlogin vimrc vim zshrc gitconfig gitignore_global aliases osx ngrok wallaby"    # list of files/folders to symlink in homedir
 
 # create dotfiles_old in target dir
 echo "Creating $old_dir for backup of any existing dotfiles in $target_dir"
