@@ -5,11 +5,9 @@ alias g="git"
 alias gs="git status"
 alias gsu="git submodule sync && git submodule update --init --recursive"
 alias gco="git checkout"
+alias gp="git push -u origin HEAD"
 
 alias f="ack -R --all-types --smart-case"
-
-## work - web
-alias be="bundle exec"
 
 alias docker-cleanup="docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes"
 alias flush-redis="docker exec www_redis_1 redis-cli -c 'FLUSHALL'"
@@ -19,15 +17,5 @@ alias pg-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 ## ngrok
 alias ngrok-start="ngrok start -config=/Users/stef/.ngrok2/ngrok.yml -config=_ignore_this/ngrok_config dev webpack"
 
-## goodtime
-alias logp="heroku logs -a good-time-app -n 1000 --tail"
-alias logst="heroku logs -a goodtime-stage -n 1000 --tail"
-alias logst2="heroku logs -a goodtime-stage2 -n 1000 --tail"
-alias unitt="npm run unittest:list -- -g"
-alias unittest="npm run unittest:list"
-alias itestt="npm run integrationtest:list -- -g"
-alias itest="npm run integrationtest:list"
-alias npmi="npm install --ignore-scripts"
-alias logst="heroku logs -a goodtime-stage -n 1000 --tail"
-
-alias gp="git push -u origin HEAD"
+## vscode
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"

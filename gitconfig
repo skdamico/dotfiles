@@ -1,14 +1,17 @@
 [push]
     default = current
+[pull]
+    default = current
+	ff = only
 [format]
     pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
 [user]
-	name = Stefano D'Amico
-	email = skdamico@gmail.com
+    name = Stefano D'Amico
+    email = skdamico@gmail.com
 [core]
     editor = vim
     autocrlf = input
-	excludesfile = /Users/stef/.gitignore_global
+    excludesfile = /Users/stef/.gitignore_global
 [merge]
     keepBackup = false;
     tool = sourcetree
@@ -21,9 +24,9 @@
 [mergetool]
     keepBackup = false
 [commit]
-	template = \"$HOME\"/.stCommitMsg
+    template = \"$HOME\"/.stCommitMsg
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

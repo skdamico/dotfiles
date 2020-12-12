@@ -7,9 +7,17 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="steeef"
 
-# completion
-autoload -U compinit
-compinit
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+else
+    autoload -U compinit
+    compinit
+fi
+
+source <(kubectl completion zsh)
 
 # set architecture flags
 export ARCHFLAGS="-arch x86_64"
@@ -20,6 +28,10 @@ export EDITOR=nvim
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
+fi
+
+if [ -e "$HOME/.profile" ]; then
+  source "$HOME/.profile"
 fi
 
 # Example aliases
