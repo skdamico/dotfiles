@@ -9,13 +9,10 @@ ZSH_THEME="steeef"
 
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-    autoload -Uz compinit
-    compinit
-else
-    autoload -U compinit
-    compinit
 fi
+
+autoload -Uz compinit
+compinit
 
 source <(kubectl completion zsh)
 
