@@ -6,35 +6,42 @@
 # Variables
 
 dir=~/dotfiles                    # dotfiles directory
-old_dir=dotfiles_old              # old dotfiles backup directory
+backup_dir_name=dotsgotbacked              # old dotfiles backup directory
 target_dir=~                      # target directory
-files="zlogin vimrc vim zshrc gitconfig gitignore_global aliases osx ngrok wallaby"    # list of files/folders to symlink in homedir
+target_backup=$target_dir/.$backup_dir_name
+files="zlogin vimrc vim zshrc gitconfig gitignore_global aliases osx profile"    # list of files/folders to symlink in homedir
 if [-x $0]; then;
     files=$0
 endif
 
+echo "Installing skdamico's dotfiles"
+echo "($files)\n\n"
+
 # create dotfiles_old in target dir
-echo "Creating $old_dir for backup of any existing dotfiles in $target_dir"
-mkdir -p $target_dir/$old_dir
-echo "...done"
+echo "Creating $target_backup for backup of any existing dotfiles in $target_dir"
+mkdir -p $target_backup
+echo "...done\n"
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
+# move any existing dotfiles in homedir to backup directory, then create symlinks
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $old_dir"
-    mv ~/.$file $target_dir/$old_dir
-    echo "Creating symlink to $file in home directory."
+    echo "Backing up $target_dir/.$file to $target_backup/.$file..."
+    mv $target_dir/.$file $target_backup
+    echo "Creating symlink $target_dir/.$file to $dir/$file..."
     ln -s $dir/$file $target_dir/.$file
 done
+echo "...done\n"
 
-echo "Cloning vim plugins"
+echo "Cloning vim plugins..."
 cd $dir/vim/bundle
 git submodule sync
 git submodule update --init
+echo "...done\n"
 
-cd $dir
-echo "...done"
+echo "Updating antigen..."
+cd $dir/antigen
+git pull
+
+cd $target_dir
+echo "...done\n"
+
+exec zsh

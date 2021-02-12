@@ -10,7 +10,7 @@ alias gp="git push -u origin HEAD"
 alias f="ack -R --all-types --smart-case"
 
 alias docker-cleanup="docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes"
-alias flush-redis="docker exec www_redis_1 redis-cli -c 'FLUSHALL'"
+alias flush-redis="docker exec etchschedule_redis_1 redis-cli -c 'FLUSHALL'"
 alias pg-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 

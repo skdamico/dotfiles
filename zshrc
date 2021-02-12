@@ -1,3 +1,6 @@
+# Profiling zsh
+#zmodload zsh/zprof
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -14,13 +17,14 @@ fi
 autoload -Uz compinit
 compinit
 
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 
 # set architecture flags
 export ARCHFLAGS="-arch x86_64"
 
 # use nvim as an editor
-export EDITOR=nvim
+export EDITOR=vim
+export VEDITOR=code
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -54,13 +58,15 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-    nvm 
-    zsh-better-npm-completion 
+    zsh-nvm
+    npm
     osx 
     git 
     vscode
     heroku
     zsh-syntax-highlighting
+    docker
+    docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -85,14 +91,11 @@ export PATH=$HOME/bin:/usr/local/share/python:/usr/local/bin:/opt/local/bin:/opt
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/opt/ncurses/bin:$PATH
 
-# 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
-# never use prettier-eslint
-#export SKIP=prettier-eslint
 
 # Golang
 export GOPATH="${HOME}/.go"
@@ -106,6 +109,14 @@ test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
+# Brew - Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+
+# Utils
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
